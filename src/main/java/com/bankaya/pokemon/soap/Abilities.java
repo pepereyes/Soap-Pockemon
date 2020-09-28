@@ -14,6 +14,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 /**
  * <p>Clase Java para abilities complex type.
@@ -46,6 +48,7 @@ public class Abilities {
 
     @XmlElement(required = true)
     protected Ability ability;
+    @JsonProperty("is_hidden")
     protected boolean isHidden;
     @XmlElement(required = true)
     protected BigInteger slot;

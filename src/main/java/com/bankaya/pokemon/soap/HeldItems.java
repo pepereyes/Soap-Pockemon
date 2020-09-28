@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 /**
  * <p>Clase Java para heldItems complex type.
@@ -46,6 +48,7 @@ public class HeldItems {
     @XmlElement(required = true)
     protected Item item;
     @XmlElement(name = "version_details")
+    @JsonProperty("version_details")
     protected List<VersionDetails> versionDetails;
 
     /**

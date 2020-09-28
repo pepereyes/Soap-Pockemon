@@ -14,6 +14,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 /**
  * <p>Clase Java para anonymous complex type.
@@ -42,6 +44,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetLocationAreaEncountersResponse {
 
     @XmlElement(name = "location_area_encounters", required = true)
+    @JsonProperty("location_area_encounters")
     protected String locationAreaEncounters;
 
     /**

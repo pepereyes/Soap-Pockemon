@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 /**
  * <p>Clase Java para anonymous complex type.
@@ -44,6 +46,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetHeldItemsResponse {
 
     @XmlElement(name = "held_items")
+    @JsonProperty("held_items")
     protected List<HeldItems> heldItems;
 
     /**

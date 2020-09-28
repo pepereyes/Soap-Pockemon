@@ -42,5 +42,4 @@ class PokemonApplicationTests {
 		GetNameResponse n = prt.getName(pockemon);
 		assertNotNull(n);
 	}
-
 }
