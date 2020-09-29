@@ -1,23 +1,13 @@
 package com.bankaya.pokemon;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.transform.Source;
-import javax.xml.ws.spi.http.HttpExchange;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.ws.WebServiceMessage;
-import org.springframework.ws.client.WebServiceClientException;
 import org.springframework.ws.context.MessageContext;
 import org.springframework.ws.server.EndpointInterceptor;
-import org.springframework.ws.server.endpoint.AbstractLoggingInterceptor;
-import org.springframework.ws.soap.SoapMessage;
 
 import com.bankaya.pokemon.request.logging.*;
 
@@ -28,7 +18,6 @@ public class CustomEndpointInterceptor implements EndpointInterceptor {
 	private HttpServletRequest request;
 	@Autowired RequestLoggingRepository repository;
 	
-    private static final Log LOG = LogFactory.getLog(CustomEndpointInterceptor.class);
     private RequestLogging requestLogging;
 
     @Override
@@ -39,17 +28,12 @@ public class CustomEndpointInterceptor implements EndpointInterceptor {
     	requestLogging.setIp(getIpAddress());
     	requestLogging.setMetodo(request.getMethod());
     	repository.save(requestLogging);
-    	return handleRequest(messageContext, null);
+    	return true;
     }
 
     @Override
 	public boolean handleResponse(MessageContext messageContext, Object endpoint) throws Exception {
-    	try {
-    		return handleResponse(messageContext, null);
-    	} catch(Exception e) {
-    		
-    	}
-        return false;
+    	return true;
     }
 
 	@Override
